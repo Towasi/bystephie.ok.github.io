@@ -80,7 +80,7 @@ section h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
 .ticker a.si{display:inline-flex;align-items:center;gap:.5em;margin:0 34px;color:inherit;text-decoration:none;vertical-align:middle}
 .ticker .si svg{width:1.2em;height:1.2em;color:inherit;flex:none}
 @media (max-width:620px){.f1{width:44px}.f2{width:32px}.f3{width:56px}.f4{width:28px}}
-@media (prefers-reduced-motion:reduce){.fl,.pulse::after,.ticker2 div{animation:none}.js .contact .w{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.js .contact .w{opacity:1;transform:none;transition:none}}
 .contact h2{font-size:clamp(2.4rem,7vw,5rem);max-width:14ch;margin:0 auto 22px}
 .contact p{max-width:44ch;margin:0 auto 28px}
 footer{background:var(--cobalt);color:#fff;padding:0 0 28px}
@@ -179,7 +179,7 @@ dialog.pop{border:0;border-radius:30px;width:min(860px,calc(100% - 24px));max-wi
 .img.emp .hl::after{opacity:1;height:.3em;bottom:.02em}
 .img.emp .st{position:absolute;animation:flot 5s ease-in-out infinite alternate}
 .img.emp .e1{width:64px;color:var(--coral);top:-10px;right:14px}.img.emp .e2{width:38px;color:var(--pink);bottom:10px;left:16px;animation-delay:-2s}
-@media (prefers-reduced-motion:reduce){.img.emp .st{animation:none}}
+
 .c1{background:var(--cobalt);color:#fff}.c1 .st{color:var(--coral)}
 .c2{background:var(--pink);color:#16185F}.c2 .st{color:#fff}
 .c3{background:var(--coral);color:#fff}.c3 .st{color:#fff}
@@ -302,9 +302,17 @@ dialog.gate.quote{width:min(500px,calc(100% - 24px))}
 .gate.quote .dtop h3{max-width:none;font-size:clamp(1.5rem,5.6vw,2.1rem);line-height:1.05}
 .gate.quote .gp{margin:14px 0 18px;font-weight:500}
 .quote a{color:#fff;font-weight:700}
+dialog#wip{width:min(500px,calc(100% - 24px))}
+.wipb{padding:22px 0 8px}.wipb .qh{font-size:clamp(2rem,8vw,2.8rem);max-width:none;margin:14px auto 12px}
+.wipb p{max-width:34ch;margin:0 auto 12px;font-size:1.05rem}.wipb .wips{font-weight:800;font-size:1.25rem;margin-bottom:16px}
+.wipb .qstar{animation:spin 1.4s cubic-bezier(.3,1.4,.5,1) both,wflot 4.5s ease-in-out 1.4s infinite alternate}
+@keyframes wflot{from{transform:translateY(-6px) rotate(-8deg)}to{transform:translateY(8px) rotate(10deg)}}
+#wip .qd2{left:22px;top:34px;bottom:auto;width:34px}
+#wip .qd3{right:24px;left:auto;top:62px;bottom:auto;width:46px}
+.wipbtns{display:grid;gap:10px;margin-top:20px}
 .qwa{margin:16px 0 0;font-weight:500;text-align:center}.qwa a{color:inherit}
 @media (max-width:520px){.qrow{grid-template-columns:1fr}dialog.quote .dbody{padding:24px 20px 18px}}
-@media (prefers-reduced-motion:reduce){.qdeco,.qstar{animation:none}.chips span,.qprog i{transition:none}}
+@media (prefers-reduced-motion:reduce){.chips span,.qprog i{transition:none}}
 .ddb{font:500 1rem/1.3 Gilroy,"Montserrat",sans-serif;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;cursor:pointer}
 .fld>select{display:none}.dd{position:relative}
 .ddb::after{content:"";flex:none;width:10px;height:10px;border-right:3px solid var(--coral);border-bottom:3px solid var(--coral);transform:translateY(-3px) rotate(45deg);transition:transform .25s}
@@ -314,7 +322,7 @@ dialog.gate.quote{width:min(500px,calc(100% - 24px))}
 .ddl li{padding:.6rem .9rem;border-radius:14px;font-weight:600;color:#16185F;cursor:pointer}
 .ddl li:hover,.ddl li.hv{background:var(--soft)}.ddl li[aria-selected=true]{background:var(--cobalt);color:#fff}
 @media (prefers-reduced-motion:reduce){.ddb::after{transition:none}}
-@media (prefers-reduced-motion:reduce){.spark,.ticker div{animation:none}html{scroll-behavior:auto}.btn,.svc,.tile{transition:none}.cur{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.svc,.tile{transition:none}.cur{display:none}}
 .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
 dialog{scrollbar-width:none;-ms-overflow-style:none}dialog::-webkit-scrollbar{display:none}
 footer a{color:#fff;text-decoration:underline;text-underline-offset:3px}
@@ -419,6 +427,8 @@ dialog.priv .dbody{padding:28px}
 <div class="qact"><button class="btn qback" type="button" id="qb">Volver</button><button class="btn b-coral qbig" type="submit">Enviar</button></div></div></form>
 <div id="qok" class="qok" hidden><span class="st qstar" aria-hidden="true"></span><h4 class="qh">¡Gracias, <span id="qname"></span>!</h4><p>Pronto me pondré en contacto contigo y te haré llegar una <span class="hl">propuesta adaptada</span> a tu presupuesto.</p><button class="btn b-white" type="button" id="qc2">Listo</button></div>
 <p class="qwa" id="qwr"><a href="#" id="qwa" target="_blank" rel="noopener">Prefiero escribir por WhatsApp</a></p></div></dialog>
+<dialog class="pop gate quote" id="wip" aria-labelledby="wipt"><div class="dbody"><span class="qdeco qd2 st" aria-hidden="true"></span><span class="qdeco qd3 st" aria-hidden="true"></span>
+<div class="qok wipb"><span class="st qstar" aria-hidden="true"></span><h3 class="qh" id="wipt"><span class="hl">Work in Progress</span></h3><p class="wips">¡Estoy armando algo cool!</p><p>Aún estoy cargando mis trabajos a mi nuevo portafolio, pero algunos de mis favoritos ya están por aquí.</p><p>Estoy trabajando en lo que sigue y pronto habrá mucho más para ver.</p><div class="wipbtns"><button class="btn b-coral qbig" type="button" id="wipx">Entrar a curiosear</button></div></div></div></dialog>
 <dialog class="pop gate quote" id="gate" aria-labelledby="gtitle"><div class="dbody"><span class="qdeco qd1 st" aria-hidden="true"></span><span class="qdeco qd2 st" aria-hidden="true"></span><div class="dtop"><h3 id="gtitle"></h3><button class="btn qclose" id="gx" type="button">Cerrar</button></div>
 <form id="gf"><p class="gp">Déjame tu correo y empieza tu descarga.</p><label class="fld">Nombre (opcional)<input name="nombre" autocomplete="given-name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="chk"><input type="checkbox" name="news" id="gchk" required><span>A cambio de esta guía gratis, acepto recibir novedades y guías de bystephie.ok por correo (vía Mailchimp, EE.UU.). Puedo darme de baja cuando quiera. <a href="#privacidad" data-priv>Política de privacidad</a></span></label><p class="gerr" id="gerr" role="alert"></p><button class="btn b-coral qbig" type="submit">Descargar ahora</button></form>
 <div id="gok" class="qok" hidden><span class="st qstar" aria-hidden="true"></span><h4 class="qh">¡Listo!</h4><p>Tu descarga debería comenzar ahora. Si no empieza, <a id="gdl" href="#" download>descárgala aquí</a>.</p></div></div></dialog>
@@ -642,7 +652,7 @@ var BRANDING = [
   {
     nombre: "Prueba",
     portada: "img/brandings/prueba/prueba-logo.jpg",
-    rellenar: true,
+    rellenar: false,
     fondo: "#3538E8",
     espacio: "9%",
     silueta: false,
@@ -728,6 +738,13 @@ document.querySelectorAll('[data-priv]').forEach(function(a){a.addEventListener(
 document.getElementById('px').addEventListener('click',function(){pd.close()});
 pd.addEventListener('click',function(e){if(e.target===pd)pd.close()});
 if(location.hash==='#privacidad')po()})();
+
+/* aviso de sitio en construcción: se abre al entrar, una vez por visita */
+(function(){var w=document.getElementById('wip');if(!w)return;var seen=false;try{seen=sessionStorage.getItem('wip')==='1'}catch(e){}
+function fin(){try{sessionStorage.setItem('wip','1')}catch(e){}}
+w.addEventListener('close',fin);w.addEventListener('click',function(e){if(e.target===w)w.close()});
+document.getElementById('wipx').addEventListener('click',function(){w.close()});
+if(!seen)setTimeout(function(){if(!document.querySelector('dialog[open]'))w.showModal()},350)})();
 </script>
 </body>
 </html>
