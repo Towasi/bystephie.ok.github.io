@@ -342,7 +342,8 @@ dialog.priv .dbody{padding:28px}
 /* ajustes móvil y presentación */
 .about .wrap>div>p:not(.where){text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .ph-g{overflow:hidden;overscroll-behavior:auto;touch-action:pan-y}
-@media (max-width:620px){.hero{padding:104px 0 104px}.spark{top:auto;bottom:16px;right:16px;width:64px}}
+.nw{white-space:nowrap}.h1s{display:none}
+@media (max-width:620px){.hero{padding:104px 0 64px}.spark{display:none}.h1s{display:inline-block;width:.78em;height:.78em;margin-left:.16em;vertical-align:-.04em;color:var(--coral);animation:flot 6s ease-in-out infinite alternate}}
 main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 </style>
 <script>document.documentElement.classList.add("js")</script></head>
@@ -356,7 +357,7 @@ main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 <main id="inicio">
 <div class="hero"><div class="wrap">
   <span class="spark st" aria-hidden="true"></span>
-  <h1>Social media, pero con estrategia.</h1>
+  <h1>Social media, pero con <span class="nw">estrategia.<span class="h1s st" aria-hidden="true"></span></span></h1>
   <p>Ayudo a marcas y emprendimientos a tener una presencia digital con personalidad: ideas que se convierten en contenido, y contenido que construye marcas.</p>
   <div class="btns"><a class="btn b-white" href="#portafolio">Ver portafolio</a><a class="btn b-pink" href="#contacto" data-quote>Quiero cotizar</a></div>
 </div></div>
