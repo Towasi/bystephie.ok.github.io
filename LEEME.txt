@@ -1,0 +1,9 @@
+bystephie.ok — sitio web
+
+Sube TODO el contenido de esta carpeta a la carpeta pública de tu hosting (public_html o similar):
+  index.html
+  img/      (imágenes de los trabajos y logos)
+  fonts/    (Gilroy)
+
+Para agregar un trabajo nuevo: sube la imagen a la carpeta img/ y pídeme que la conecte en index.html.
+Las guías en PDF van en una carpeta guias/ (todavía no existe).
