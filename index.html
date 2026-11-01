@@ -343,6 +343,7 @@ dialog.priv .dbody{padding:28px}
 .about .wrap>div>p:not(.where){text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .ph-g{overflow:hidden;overscroll-behavior:auto;touch-action:pan-y}
 @media (max-width:620px){.hero{padding:104px 0 104px}.spark{top:auto;bottom:16px;right:16px;width:64px}}
+main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 </style>
 <script>document.documentElement.classList.add("js")</script></head>
 <body>
@@ -733,6 +734,11 @@ document.querySelectorAll('[data-priv]').forEach(function(a){a.addEventListener(
 document.getElementById('px').addEventListener('click',function(){pd.close()});
 pd.addEventListener('click',function(e){if(e.target===pd)pd.close()});
 if(location.hash==='#privacidad')po()})();
+/* navegación sin #secciones en la URL: los botones bajan a cada sección y la dirección queda como bystephieok.com/ */
+(function(){var limpia=location.pathname+location.search;
+function ir(id,suave){var s=document.getElementById(id);if(!s)return false;s.scrollIntoView({behavior:suave?BH:'auto',block:'start'});if(!s.hasAttribute('tabindex'))s.setAttribute('tabindex','-1');s.focus({preventScroll:true});return true}
+document.addEventListener('click',function(e){if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;var a=e.target.closest('a[href^="#"]');if(!a||a.hasAttribute('data-quote')||a.hasAttribute('data-priv'))return;var id=a.getAttribute('href').slice(1);if(!id)return;if(ir(id,true)){e.preventDefault();if(location.hash)history.replaceState(null,'',limpia)}});
+if(location.hash){var id=location.hash.slice(1);history.replaceState(null,'',limpia);if(id!=='privacidad')setTimeout(function(){ir(id,false)},0)}})();
 
 /* aviso de sitio en construcción: se abre al entrar, una vez por visita */
 (function(){var w=document.getElementById('wip');if(!w)return;var seen=false;try{seen=sessionStorage.getItem('wip')==='1'}catch(e){}
