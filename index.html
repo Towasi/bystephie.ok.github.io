@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>bystephie.ok · Community manager y diseñadora gráfica</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.list-manage.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.list-manage.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
 @font-face{font-family:Montserrat;font-weight:300;font-style:normal;font-display:swap;src:url(fonts/montserrat-latin-300-normal.woff2) format("woff2")}
@@ -244,6 +244,19 @@ dialog.gate{width:min(480px,calc(100% - 24px))}
 .imgw{border-radius:24px;overflow:hidden;display:grid;place-items:center}
 .imgw img{max-width:100%;max-height:58vh;object-fit:contain;display:block}
 .imgw.full{display:block}.imgw.full img{width:100%;max-height:none}
+.imgw.full video{width:100%;max-height:70vh;display:block;background:#000}
+.dtx{margin-top:14px;line-height:1.5}
+.yt{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#16185F}
+.yt.vert{aspect-ratio:9/16;height:min(70vh,640px);margin:0 auto}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytc{all:unset;cursor:pointer;position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;background:#16185F center/cover no-repeat;color:#fff;text-align:center}
+.ytc::before{content:"";position:absolute;inset:0;background:#16185F66}
+.ytc>*{position:relative}
+.ytp{width:76px;height:76px;border-radius:50%;background:var(--coral);display:grid;place-items:center;transition:transform .2s}
+.ytp::after{content:"";margin-left:6px;border-left:24px solid #fff;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.ytc:hover .ytp{transform:scale(1.08)}
+.ytc:focus-visible{outline:3px solid var(--coral);outline-offset:-3px}
+.ytc small{font-size:.8rem;opacity:.9;padding:0 16px}
 @media (prefers-reduced-motion:reduce){.pt{animation:none}.ring{transition:none}}
 html,body{overflow-x:hidden;max-width:100%}
 .pf>*,.side>*,.about .wrap>*,.bento>*,.mosaic>*,.guias>*{min-width:0}
@@ -409,10 +422,10 @@ dialog.priv .dbody{padding:28px}
 <dialog class="pop gate quote" id="gate" aria-labelledby="gtitle"><div class="dbody"><span class="qdeco qd1 st" aria-hidden="true"></span><span class="qdeco qd2 st" aria-hidden="true"></span><div class="dtop"><h3 id="gtitle"></h3><button class="btn qclose" id="gx" type="button">Cerrar</button></div>
 <form id="gf"><p class="gp">Déjame tu correo y empieza tu descarga.</p><label class="fld">Nombre (opcional)<input name="nombre" autocomplete="given-name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="chk"><input type="checkbox" name="news" id="gchk" required><span>A cambio de esta guía gratis, acepto recibir novedades y guías de bystephie.ok por correo (vía Mailchimp, EE.UU.). Puedo darme de baja cuando quiera. <a href="#privacidad" data-priv>Política de privacidad</a></span></label><p class="gerr" id="gerr" role="alert"></p><button class="btn b-coral qbig" type="submit">Descargar ahora</button></form>
 <div id="gok" class="qok" hidden><span class="st qstar" aria-hidden="true"></span><h4 class="qh">¡Listo!</h4><p>Tu descarga debería comenzar ahora. Si no empieza, <a id="gdl" href="#" download>descárgala aquí</a>.</p></div></div></dialog>
-<dialog class="pop" id="dlg" aria-labelledby="dt"><div class="dbody"><div class="dtop"><h3 id="dt"></h3><button class="btn b-white" style="background:var(--cobalt);color:#fff" id="dx">Cerrar</button></div><div class="trk" id="trk"></div><div class="dnav"><button class="btn b-pink" id="pv" style="color:#16185F">Anterior</button><span id="cnt"></span><button class="btn b-pink" id="nx" style="color:#16185F">Siguiente</button></div></div></dialog>
+<dialog class="pop" id="dlg" aria-labelledby="dt"><div class="dbody"><div class="dtop"><h3 id="dt"></h3><button class="btn b-white" style="background:var(--cobalt);color:#fff" id="dx">Cerrar</button></div><div class="trk" id="trk"></div><p class="dtx" id="dtx" hidden></p><div class="dnav"><button class="btn b-pink" id="pv" style="color:#16185F">Anterior</button><span id="cnt"></span><button class="btn b-pink" id="nx" style="color:#16185F">Siguiente</button></div></div></dialog>
 <dialog class="pop priv" id="priv" aria-labelledby="ptt"><div class="dbody"><div class="dtop"><h3 id="ptt">Política de privacidad</h3><button class="btn b-white" style="background:var(--cobalt);color:#fff" id="px" type="button">Cerrar</button></div>
 <div class="ptxt">
-<p class="pv">Versión 1.0 · vigente desde el 1 de noviembre de 2026</p>
+<p class="pv">Versión 1.1 · vigente desde el 1 de noviembre de 2026</p>
 <p>Esta política explica qué datos personales recibe este sitio, para qué se usan y cómo puedes ejercer tus derechos, según la Ley N° 19.628 sobre protección de datos personales, modificada por la Ley N° 21.719.</p>
 
 <h4>1. Quién es responsable de tus datos</h4>
@@ -430,13 +443,14 @@ dialog.priv .dbody{padding:28px}
 <p>Todos estos datos los entregas tú directamente. No uso fuentes de acceso público.</p>
 
 <h4>3. Lo que este sitio no hace</h4>
-<p>No usa cookies, herramientas de analítica ni publicidad dirigida. No vendo ni cedo tus datos. No tomo decisiones automatizadas que te afecten.</p>
+<p>No usa cookies propias, herramientas de analítica ni publicidad dirigida. La única excepción son los videos de YouTube del portafolio, y solo si los reproduces (ver punto 4). No vendo ni cedo tus datos. No tomo decisiones automatizadas que te afecten.</p>
 
 <h4>4. Con quién se comparten y transferencias fuera de Chile</h4>
 <ul>
 <li><b>FormSubmit</b> (formsubmit.co): recibe el formulario de cotización y me lo reenvía por correo.</li>
 <li><b>Google (Gmail)</b>: correo donde recibo y guardo tus mensajes.</li>
 <li><b>Mailchimp</b>: guarda la lista de correo y gestiona el envío de novedades.</li>
+<li><b>YouTube (Google)</b>: los videos del portafolio se cargan desde YouTube solo cuando presionas «Reproducir»; antes de eso, la página no se conecta con YouTube. Al reproducir, YouTube recibe datos técnicos de tu conexión y puede usar cookies según su propia política de privacidad. Usamos su modo de privacidad mejorada (youtube-nocookie.com).</li>
 <li><b>GitHub</b>: aloja este sitio. Como cualquier servidor web, puede registrar datos técnicos de la conexión, como tu dirección IP, por seguridad y funcionamiento.</li>
 </ul>
 <p>Estos proveedores tratan los datos en Estados Unidos, cuyo nivel de protección de datos puede ser distinto al de Chile. La transferencia se hace porque es necesaria para responder la cotización que tú pides (art. 27 letra g) o para concretar una compra (art. 27 letra g) o, en el caso de la lista de correo, con tu consentimiento expreso al marcar la casilla (art. 27 letra a).</p>
@@ -468,15 +482,15 @@ dialog.priv .dbody{padding:28px}
 
 
 <script>
-var CATS={b:'Branding',c:'Community manager',f:'Fotografía',v:'Edición de videos',a:'Campañas publicitarias'},dlg=document.getElementById('dlg'),trk=document.getElementById('trk'),cnt=document.getElementById('cnt'),dt=document.getElementById('dt'),BH=matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth';
+var dtx=document.getElementById('dtx');var CATS={b:'Branding',c:'Community manager',f:'Fotografía',v:'Edición de videos',a:'Campañas publicitarias'},dlg=document.getElementById('dlg'),trk=document.getElementById('trk'),cnt=document.getElementById('cnt'),dt=document.getElementById('dt'),BH=matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth';
 function upd(){cnt.textContent=(Math.round(trk.scrollLeft/trk.clientWidth)+1)+' de '+trk.children.length}
 document.querySelectorAll('.mcard').forEach(function(b){b.addEventListener('click',function(){dt.textContent=CATS[b.dataset.k];trk.innerHTML='';for(var i=1;i<=3;i++){var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img c'+i+'"><span class="st" aria-hidden="true"></span><span>Aquí irá la imagen<br>del proyecto '+i+'</span></div><h4>Proyecto '+i+'</h4><p>Objetivo, estrategia y resultados de este proyecto.</p>';trk.appendChild(d)}dlg.showModal();trk.scrollLeft=0;upd()})});
-document.getElementById('nx').addEventListener('click',function(){trk.scrollBy({left:trk.clientWidth,behavior:BH})});
-document.getElementById('pv').addEventListener('click',function(){trk.scrollBy({left:-trk.clientWidth,behavior:BH})});
+document.getElementById('nx').addEventListener('click',function(){pausar();trk.scrollBy({left:trk.clientWidth,behavior:BH})});
+document.getElementById('pv').addEventListener('click',function(){pausar();trk.scrollBy({left:-trk.clientWidth,behavior:BH})});
 trk.addEventListener('scroll',upd);
 document.getElementById('dx').addEventListener('click',function(){dlg.close()});
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
-dlg.addEventListener('keydown',function(e){if(e.key==='ArrowRight')document.getElementById('nx').click();if(e.key==='ArrowLeft')document.getElementById('pv').click()});
+dlg.addEventListener('close',pausar);dlg.addEventListener('keydown',function(e){if(e.key==='ArrowRight')document.getElementById('nx').click();if(e.key==='ArrowLeft')document.getElementById('pv').click()});
 var bg=document.getElementById('bg'),hd=document.querySelector('header.nav');
 bg.addEventListener('click',function(){var o=hd.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
 document.querySelectorAll('#mn a').forEach(function(a){a.addEventListener('click',function(){hd.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
@@ -506,79 +520,165 @@ gchk.addEventListener('change',gsync);gsync();
 pintar('todas');
 var ct=document.querySelector('.contact');if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){ct.classList.add('in');o.disconnect()}})},{threshold:.35}).observe(ct)}else{ct.classList.add('in')}
 /* =====================================================================
-   PORTAFOLIO · PROYECTOS DE BRANDING
+   PORTAFOLIO
    ---------------------------------------------------------------------
-   Cada proyecto es una "ficha" entre llaves { ... }, separada por coma.
-   - Para AGREGAR un proyecto: copia una ficha completa (desde { hasta },),
-     pégala donde quieras que aparezca y cambia sus textos.
-   - Para QUITAR un proyecto: borra su ficha completa.
+   Hay una lista por categoría:
+     BRANDING · COMMUNITY · FOTOGRAFIA · VIDEOS · CAMPANAS
+   Cada proyecto es una "ficha" entre llaves { ... }.
+
+   - AGREGAR: copia una ficha completa (desde { hasta },), pégala dentro
+     de la lista de su categoría y cambia sus textos.
+   - QUITAR: borra la ficha completa.
    - El orden de las fichas es el orden en que aparecen en la grilla.
+   - Cada ficha termina en }, (con coma), menos la última de la lista,
+     que termina solo en }
+   - Una categoría sin proyectos queda con los corchetes vacíos: []
+     y muestra los cuadros de "Aquí podría estar tu marca".
 
    Qué es cada dato (cambia solo lo que está entre comillas):
-   nombre      → nombre del proyecto (aparece en el título del popup)
-   logo        → ruta del logo que se ve en el cuadro de la grilla
-   lamina      → ruta de la imagen grande que se abre al hacer clic
-   fondo       → color del cuadro (ej: "#F27BA5")
-   espacio     → margen alrededor del logo dentro del cuadro (ej: "0%", "20%")
-   silueta     → true = el logo se pinta de un solo color (como Hile Studio)
-                 false = el logo se muestra con sus colores originales
+   nombre      → nombre del proyecto (sale en el título del popup)
+   portada     → imagen del cuadro de la grilla (un logo o una foto)
+   rellenar    → true  = la portada llena todo el cuadro (ideal para fotos)
+                 false = la portada se ve completa, con margen (ideal para logos)
+   fondo       → color del cuadro detrás de la portada
+   espacio     → margen alrededor de la portada cuando rellenar es false
+                 (número mayor = portada más chica). Ej: "9%"
+   silueta     → true  = el logo se pinta de un solo color (como Hile Studio)
+                 false = el logo se ve con sus colores originales
+   imagenes    → imágenes del popup, entre corchetes y separadas por coma:
+                 ["img/fotografia/cliente/1.webp", "img/fotografia/cliente/2.webp"]
+                 Si hay más de una, el popup muestra flechas para pasarlas.
+   youtube     → links de videos de YouTube, entre corchetes y separados por
+                 coma: ["https://www.youtube.com/watch?v=XXXXXXXXXXX"]
+                 Sirven links normales, de youtu.be y de Shorts
+                 (los Shorts se muestran en formato vertical). Si no hay: []
+   texto       → texto bajo las imágenes (objetivo, estrategia, resultados).
+                 Si no hay: ""
    descripcion → texto que leen los lectores de pantalla (accesibilidad)
+
+   Colores de la marca: azul "#3538E8" · rosado "#F27BA5" ·
+                        coral "#F05A50" · rosado claro "var(--soft)"
+
+   EJEMPLO de ficha con fotos (para copiar):
+   {
+     nombre: "Café Aroma",
+     portada: "img/fotografia/cafe-aroma/portada.webp",
+     rellenar: true,
+     fondo: "#F27BA5",
+     espacio: "0%",
+     silueta: false,
+     imagenes: ["img/fotografia/cafe-aroma/1.webp", "img/fotografia/cafe-aroma/2.webp"],
+     youtube: [],
+     texto: "Sesión de fotos de producto para el lanzamiento de su nueva carta.",
+     descripcion: "Fotografías de producto de Café Aroma"
+   }
+
+   EJEMPLO de ficha con videos de YouTube (para copiar):
+   {
+     nombre: "Reel lanzamiento",
+     portada: "img/videos/reel-lanzamiento/portada.webp",
+     rellenar: true,
+     fondo: "#3538E8",
+     espacio: "0%",
+     silueta: false,
+     imagenes: [],
+     youtube: ["https://www.youtube.com/shorts/XXXXXXXXXXX"],
+     texto: "Reel de lanzamiento: 12.000 reproducciones en la primera semana.",
+     descripcion: "Video del reel de lanzamiento"
+   }
+   La portada también se usa como fondo del botón de "Reproducir".
    ===================================================================== */
-var PROYECTOS = [
+
+/* ---------- BRANDING ---------- */
+var BRANDING = [
   {
     nombre: "bystephie.ok",
-    logo: "img/brandings/bystephieok/bystephieok-logo-blanco.webp",
-    lamina: "img/brandings/bystephieok/branding-bystephieok.webp",
+    portada: "img/brandings/bystephieok/bystephieok-logo-blanco.webp",
+    rellenar: false,
     fondo: "#3538E8",
     espacio: "9%",
     silueta: false,
+    imagenes: ["img/brandings/bystephieok/branding-bystephieok.webp"],
+    youtube: [],
+    texto: "",
     descripcion: "Lámina de identidad de bystephie.ok: logo, paleta, tipografía, personalidad y aplicaciones"
   },
   {
     nombre: "Holy Bites",
-    logo: "img/brandings/holybites/holybites-logo.webp",
-    lamina: "img/brandings/holybites/branding-holybites.webp",
+    portada: "img/brandings/holybites/holybites-logo.webp",
+    rellenar: false,
     fondo: "#F27BA5",
     espacio: "19%",
     silueta: false,
+    imagenes: ["img/brandings/holybites/branding-holybites.webp"],
+    youtube: [],
+    texto: "",
     descripcion: "Lámina de identidad de Holy Bites: logo, paleta, tipografía, personalidad y aplicaciones"
   },
   {
     nombre: "Zuply",
-    logo: "img/brandings/zuply/zuply-logo.webp",
-    lamina: "img/brandings/zuply/branding-zuply.webp",
+    portada: "img/brandings/zuply/zuply-logo.webp",
+    rellenar: false,
     fondo: "#F05A50",
     espacio: "24%",
     silueta: false,
+    imagenes: ["img/brandings/zuply/branding-zuply.webp"],
+    youtube: [],
+    texto: "",
     descripcion: "Lámina de identidad de Zuply: logo, colores, tipografía, personalidad y aplicaciones"
   },
   {
     nombre: "Hile Studio",
-    logo: "img/brandings/hilestudio/hilestudio-logo.webp",
-    lamina: "img/brandings/hilestudio/branding-hilestudio.webp",
+    portada: "img/brandings/hilestudio/hilestudio-logo.webp",
+    rellenar: false,
     fondo: "var(--soft)",
     espacio: "14%",
     silueta: true,
+    imagenes: ["img/brandings/hilestudio/branding-hilestudio.webp"],
+    youtube: [],
+    texto: "",
     descripcion: "Lámina de identidad de Hile Studio: logo, paleta, tipografía, personalidad y aplicaciones"
   },
   {
     nombre: "Prueba",
-    logo: "img/brandings/prueba/prueba-logo.jpg",
-    lamina: "img/brandings/prueba/branding-prueba.webp",
+    portada: "img/brandings/prueba/prueba-logo.jpg",
+    rellenar: false,
     fondo: "#3538E8",
     espacio: "9%",
     silueta: false,
+    imagenes: ["img/brandings/prueba/branding-prueba.webp"],
+    youtube: [],
+    texto: "",
     descripcion: "Lámina de prueba: logo, paleta, tipografía, personalidad y aplicaciones"
   }
 ];
-/* ===================== FIN PROYECTOS DE BRANDING ===================== */
+
+/* ---------- COMMUNITY MANAGER ---------- */
+var COMMUNITY = [];
+
+/* ---------- FOTOGRAFÍA ---------- */
+var FOTOGRAFIA = [];
+
+/* ---------- EDICIÓN DE VIDEOS ---------- */
+var VIDEOS = [];
+
+/* ---------- CAMPAÑAS PUBLICITARIAS ---------- */
+var CAMPANAS = [];
+
+/* ===================== FIN PORTAFOLIO ===================== */
+var PORTAFOLIO={b:BRANDING,c:COMMUNITY,f:FOTOGRAFIA,v:VIDEOS,a:CAMPANAS};
+function lista(k){return PORTAFOLIO[k]||[]}
+function ytId(u){u=String(u||'').trim();var m=u.match(/(?:youtu\.be\/|[?&]v=|\/shorts\/|\/embed\/|\/live\/)([A-Za-z0-9_-]{11})/);return m?m[1]:(/^[A-Za-z0-9_-]{11}$/.test(u)?u:'')}
+function medios(P){var m=[];(P.imagenes||(P.lamina?[P.lamina]:[])).forEach(function(s){if(s)m.push({t:'img',s:s})});(P.youtube||[]).forEach(function(u){var id=ytId(u);if(id)m.push({t:'yt',s:id,v:/shorts\//.test(u)})});(P.videos||[]).forEach(function(s){if(s)m.push({t:'video',s:s})});return m}
+function ytCara(w){var b=document.createElement('button');b.type='button';b.className='ytc';if(w.dataset.p)b.style.backgroundImage='url("'+w.dataset.p+'")';b.setAttribute('aria-label','Reproducir video de YouTube');b.innerHTML='<span class="ytp" aria-hidden="true"></span><small>Al reproducir, el video se carga desde YouTube</small>';b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+w.dataset.id+'?autoplay=1&rel=0';f.title=w.dataset.t||'Video de YouTube';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';w.innerHTML='';w.appendChild(f)});w.innerHTML='';w.appendChild(b)}
+function pausar(){trk.querySelectorAll('video').forEach(function(v){v.pause()});trk.querySelectorAll('.yt').forEach(function(w){if(w.querySelector('iframe'))ytCara(w)})}
 var PF={b:['Branding','Identidades visuales que hacen que tu marca se reconozca.'],c:['Community manager','Comunidades activas, con una voz cercana y contenido constante.'],f:['Fotografía','Imágenes que cuentan la historia de tu marca.'],v:['Edición de videos','Videos cortos con ritmo para Reels y TikTok.'],a:['Campañas publicitarias','Campañas pensadas para llegar a las personas correctas.']},pk='b',phg=document.getElementById('phg');
-function openEmpty(k){dt.textContent=CATS[k];trk.innerHTML='';var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img emp"><span class="st e1" aria-hidden="true"></span><span class="st e2" aria-hidden="true"></span><span class="et">Aquí podría estar<br>tu <span class="hl">marca</span></span></div><h4>Este espacio tiene tu nombre</h4><p>Está libre, brillante y esperando a una marca con ganas de destacar. ¿Será la tuya?</p><button type="button" class="btn b-coral" style="margin-top:14px" id="emq">Quiero estar aquí</button>';trk.appendChild(d);document.querySelector('.dnav').style.display='none';dlg.showModal();d.querySelector('#emq').addEventListener('click',function(){dlg.close();qopen()})}
-function openCat(k,n){var P=PROYECTOS[n||0];dt.textContent=CATS[k]+(k==='b'&&P?' · '+P.nombre:'');trk.innerHTML='';if(k==='b'){var d=document.createElement('div');d.className='slide';var w=document.createElement('div');w.className='imgw full';var m=document.createElement('img');m.src=P.lamina;m.alt=P.descripcion;w.appendChild(m);d.appendChild(w);trk.appendChild(d)}else for(var j=1;j<=3;j++){var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img c'+j+'"><span class="st" aria-hidden="true"></span><span>Aquí irá la imagen<br>del proyecto '+j+'</span></div><h4>Proyecto '+j+'</h4><p>Objetivo, estrategia y resultados de este proyecto.</p>';trk.appendChild(d)}document.querySelector('.dnav').style.display=trk.children.length<2?'none':'';dlg.showModal();trk.scrollLeft=(n||0)*trk.clientWidth;upd()}
+function openEmpty(k){dtx.hidden=true;dt.textContent=CATS[k];trk.innerHTML='';var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img emp"><span class="st e1" aria-hidden="true"></span><span class="st e2" aria-hidden="true"></span><span class="et">Aquí podría estar<br>tu <span class="hl">marca</span></span></div><h4>Este espacio tiene tu nombre</h4><p>Está libre, brillante y esperando a una marca con ganas de destacar. ¿Será la tuya?</p><button type="button" class="btn b-coral" style="margin-top:14px" id="emq">Quiero estar aquí</button>';trk.appendChild(d);document.querySelector('.dnav').style.display='none';dlg.showModal();d.querySelector('#emq').addEventListener('click',function(){dlg.close();qopen()})}
+function openCat(k,n){var P=lista(k)[n||0];if(!P){openEmpty(k);return}dt.textContent=CATS[k]+' · '+P.nombre;trk.innerHTML='';medios(P).forEach(function(x){var d=document.createElement('div');d.className='slide';var w=document.createElement('div');w.className='imgw full';if(x.t==='yt'){w.className='yt'+(x.v?' vert':'');w.dataset.id=x.s;w.dataset.p=P.portada||'';w.dataset.t=P.descripcion||P.nombre;ytCara(w)}else{var m=document.createElement(x.t);m.src=x.s;if(x.t==='img'){m.alt=P.descripcion||P.nombre}else{m.controls=true;m.playsInline=true;m.preload='metadata';m.setAttribute('aria-label',P.descripcion||P.nombre)}w.appendChild(m)}d.appendChild(w);trk.appendChild(d)});dtx.textContent=P.texto||'';dtx.hidden=!P.texto;document.querySelector('.dnav').style.display=trk.children.length<2?'none':'';dlg.showModal();trk.scrollLeft=0;upd()}
 function pfSel(k){pk=k;var ix=Object.keys(PF).indexOf(k);document.querySelectorAll('.hb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k)});document.getElementById('phc').textContent=PF[k][0];document.getElementById('ci-t').textContent=PF[k][0];document.getElementById('ci-d').textContent=PF[k][1];phg.innerHTML='';
-for(var i=0;i<Math.max(18,PROYECTOS.length);i++){(function(i){var t=document.createElement('button');t.type='button';t.className='pt pc'+((i+ix)%4);t.style.setProperty('--i',Math.min(i,9));if(k==='b'&&i<PROYECTOS.length){var P=PROYECTOS[i],e=parseFloat(P.espacio)||0;t.setAttribute('aria-label','Ver la identidad de marca de '+P.nombre);t.style.background=P.fondo;var im=document.createElement(P.silueta?'span':'img');if(P.silueta){var r=100-2*e;im.style.cssText='display:block;width:'+r+'%;height:'+r+'%;margin:'+e+'%;background:var(--ac);-webkit-mask:url("'+P.logo+'") center/contain no-repeat;mask:url("'+P.logo+'") center/contain no-repeat'}else{im.src=P.logo;im.alt='';im.style.padding=P.espacio}t.appendChild(im);t.addEventListener('click',function(){openCat('b',i)})}else{t.setAttribute('aria-label','Espacio libre: aquí podría estar tu marca');t.innerHTML='<span class="st" aria-hidden="true"></span>';t.addEventListener('click',function(){openEmpty(k)})}phg.appendChild(t)})(i)}}
+var L=lista(k);for(var i=0;i<Math.max(18,L.length);i++){(function(i){var t=document.createElement('button');t.type='button';t.className='pt pc'+((i+ix)%4);t.style.setProperty('--i',Math.min(i,9));if(i<L.length){var P=L[i],src=P.portada||P.logo,e=parseFloat(P.espacio)||0;t.setAttribute('aria-label',(k==='b'?'Ver la identidad de marca de ':'Ver el proyecto ')+P.nombre);if(P.fondo)t.style.background=P.fondo;var im=document.createElement(P.silueta?'span':'img');if(P.silueta){var r=100-2*e;im.style.cssText='display:block;width:'+r+'%;height:'+r+'%;margin:'+e+'%;background:var(--ac);-webkit-mask:url("'+src+'") center/contain no-repeat;mask:url("'+src+'") center/contain no-repeat'}else{im.src=src;im.alt='';if(P.rellenar){im.style.objectFit='cover';im.style.padding='0'}else if(P.espacio)im.style.padding=P.espacio}t.appendChild(im);t.addEventListener('click',function(){openCat(k,i)})}else{t.setAttribute('aria-label','Espacio libre: aquí podría estar tu marca');t.innerHTML='<span class="st" aria-hidden="true"></span>';t.addEventListener('click',function(){openEmpty(k)})}phg.appendChild(t)})(i)}}
 document.querySelectorAll('.hb').forEach(function(b){b.addEventListener('click',function(){pfSel(b.dataset.k)})});
-document.getElementById('ci-b').addEventListener('click',function(){pk==='b'?openCat('b',0):openEmpty(pk)});
+document.getElementById('ci-b').addEventListener('click',function(){lista(pk).length?openCat(pk,0):openEmpty(pk)});
 pfSel('b');
 var QUOTE_ENDPOINT='https://formsubmit.co/ajax/bystephieok@gmail.com';
 var qd=document.getElementById('qd'),qf=document.getElementById('qf'),qp=qf.querySelectorAll('.qp'),qs=document.getElementById('qs'),qerr=document.getElementById('qerr'),qok=document.getElementById('qok'),qwr=document.getElementById('qwr');
