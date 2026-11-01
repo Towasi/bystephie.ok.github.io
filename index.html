@@ -505,12 +505,69 @@ p.then(function(){gf.hidden=true;gok.hidden=false;document.getElementById('gdl')
 gchk.addEventListener('change',gsync);gsync();
 pintar('todas');
 var ct=document.querySelector('.contact');if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){ct.classList.add('in');o.disconnect()}})},{threshold:.35}).observe(ct)}else{ct.classList.add('in')}
-var BR={"logo": {"src": "img/brandings/bystephieok/bystephieok-logo-blanco.webp", "bg": "#3538E8"}, "board": "img/brandings/bystephieok/branding-bystephieok.webp", "holybites_logo": {"src": "img/brandings/holybites/holybites-logo.webp", "bg": "#F27BA5"}, "holybites_board": "img/brandings/holybites/branding-holybites.webp", "zuply_logo": {"src": "img/brandings/zuply/zuply-logo.webp", "bg": "var(--coral)"}, "zuply_board": "img/brandings/zuply/branding-zuply.webp", "hilestudio_logo": {"src": "img/brandings/hilestudio/hilestudio-logo.webp", "bg": "#A08978"}, "hilestudio_board": "img/brandings/hilestudio/branding-hilestudio.webp"};
+/* =====================================================================
+   PORTAFOLIO · PROYECTOS DE BRANDING
+   ---------------------------------------------------------------------
+   Cada proyecto es una "ficha" entre llaves { ... }, separada por coma.
+   - Para AGREGAR un proyecto: copia una ficha completa (desde { hasta },),
+     pégala donde quieras que aparezca y cambia sus textos.
+   - Para QUITAR un proyecto: borra su ficha completa.
+   - El orden de las fichas es el orden en que aparecen en la grilla.
+
+   Qué es cada dato (cambia solo lo que está entre comillas):
+   nombre      → nombre del proyecto (aparece en el título del popup)
+   logo        → ruta del logo que se ve en el cuadro de la grilla
+   lamina      → ruta de la imagen grande que se abre al hacer clic
+   fondo       → color del cuadro (ej: "#F27BA5")
+   espacio     → margen alrededor del logo dentro del cuadro (ej: "0%", "20%")
+   silueta     → true = el logo se pinta de un solo color (como Hile Studio)
+                 false = el logo se muestra con sus colores originales
+   descripcion → texto que leen los lectores de pantalla (accesibilidad)
+   ===================================================================== */
+var PROYECTOS = [
+  {
+    nombre: "bystephie.ok",
+    logo: "img/brandings/bystephieok/bystephieok-logo-blanco.webp",
+    lamina: "img/brandings/bystephieok/branding-bystephieok.webp",
+    fondo: "#3538E8",
+    espacio: "9%",
+    silueta: false,
+    descripcion: "Lámina de identidad de bystephie.ok: logo, paleta, tipografía, personalidad y aplicaciones"
+  },
+  {
+    nombre: "Holy Bites",
+    logo: "img/brandings/holybites/holybites-logo.webp",
+    lamina: "img/brandings/holybites/branding-holybites.webp",
+    fondo: "#F27BA5",
+    espacio: "19%",
+    silueta: false,
+    descripcion: "Lámina de identidad de Holy Bites: logo, paleta, tipografía, personalidad y aplicaciones"
+  },
+  {
+    nombre: "Zuply",
+    logo: "img/brandings/zuply/zuply-logo.webp",
+    lamina: "img/brandings/zuply/branding-zuply.webp",
+    fondo: "#F05A50",
+    espacio: "24%",
+    silueta: false,
+    descripcion: "Lámina de identidad de Zuply: logo, colores, tipografía, personalidad y aplicaciones"
+  },
+  {
+    nombre: "Hile Studio",
+    logo: "img/brandings/hilestudio/hilestudio-logo.webp",
+    lamina: "img/brandings/hilestudio/branding-hilestudio.webp",
+    fondo: "var(--soft)",
+    espacio: "14%",
+    silueta: true,
+    descripcion: "Lámina de identidad de Hile Studio: logo, paleta, tipografía, personalidad y aplicaciones"
+  }
+];
+/* ===================== FIN PROYECTOS DE BRANDING ===================== */
 var PF={b:['Branding','Identidades visuales que hacen que tu marca se reconozca.'],c:['Community manager','Comunidades activas, con una voz cercana y contenido constante.'],f:['Fotografía','Imágenes que cuentan la historia de tu marca.'],v:['Edición de videos','Videos cortos con ritmo para Reels y TikTok.'],a:['Campañas publicitarias','Campañas pensadas para llegar a las personas correctas.']},pk='b',phg=document.getElementById('phg');
 function openEmpty(k){dt.textContent=CATS[k];trk.innerHTML='';var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img emp"><span class="st e1" aria-hidden="true"></span><span class="st e2" aria-hidden="true"></span><span class="et">Aquí podría estar<br>tu <span class="hl">marca</span></span></div><h4>Este espacio tiene tu nombre</h4><p>Está libre, brillante y esperando a una marca con ganas de destacar. ¿Será la tuya?</p><button type="button" class="btn b-coral" style="margin-top:14px" id="emq">Quiero estar aquí</button>';trk.appendChild(d);document.querySelector('.dnav').style.display='none';dlg.showModal();d.querySelector('#emq').addEventListener('click',function(){dlg.close();qopen()})}
-function openCat(k,n){dt.textContent=CATS[k]+(k==='b'?(n===1?' · Holy Bites':n===2?' · Zuply':n===3?' · Hile Studio':' · bystephie.ok'):'');trk.innerHTML='';if(k==='b'){var d=document.createElement('div');d.className='slide';var w=document.createElement('div');w.className='imgw full';var m=document.createElement('img');m.src=n===1?BR.hb:n===2?BR.zb:n===3?BR.hlb:BR.board;m.alt=n===3?'Lámina de identidad de Hile Studio: logo, paleta, tipografía, personalidad y aplicaciones':n===2?'Lámina de identidad de Zuply: logo, colores, tipografía, personalidad y aplicaciones':n===1?'Lámina de identidad de Holy Bites: logo, paleta, tipografía, personalidad y aplicaciones':'Lámina de identidad de bystephie.ok: logo, paleta, tipografía, personalidad y aplicaciones';w.appendChild(m);d.appendChild(w);trk.appendChild(d)}else for(var j=1;j<=3;j++){var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img c'+j+'"><span class="st" aria-hidden="true"></span><span>Aquí irá la imagen<br>del proyecto '+j+'</span></div><h4>Proyecto '+j+'</h4><p>Objetivo, estrategia y resultados de este proyecto.</p>';trk.appendChild(d)}document.querySelector('.dnav').style.display=trk.children.length<2?'none':'';dlg.showModal();trk.scrollLeft=(n||0)*trk.clientWidth;upd()}
+function openCat(k,n){var P=PROYECTOS[n||0];dt.textContent=CATS[k]+(k==='b'&&P?' · '+P.nombre:'');trk.innerHTML='';if(k==='b'){var d=document.createElement('div');d.className='slide';var w=document.createElement('div');w.className='imgw full';var m=document.createElement('img');m.src=P.lamina;m.alt=P.descripcion;w.appendChild(m);d.appendChild(w);trk.appendChild(d)}else for(var j=1;j<=3;j++){var d=document.createElement('div');d.className='slide';d.innerHTML='<div class="img c'+j+'"><span class="st" aria-hidden="true"></span><span>Aquí irá la imagen<br>del proyecto '+j+'</span></div><h4>Proyecto '+j+'</h4><p>Objetivo, estrategia y resultados de este proyecto.</p>';trk.appendChild(d)}document.querySelector('.dnav').style.display=trk.children.length<2?'none':'';dlg.showModal();trk.scrollLeft=(n||0)*trk.clientWidth;upd()}
 function pfSel(k){pk=k;var ix=Object.keys(PF).indexOf(k);document.querySelectorAll('.hb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k)});document.getElementById('phc').textContent=PF[k][0];document.getElementById('ci-t').textContent=PF[k][0];document.getElementById('ci-d').textContent=PF[k][1];phg.innerHTML='';
-for(var i=0;i<18;i++){(function(i){var t=document.createElement('button');t.type='button';t.className='pt pc'+((i+ix)%4);t.style.setProperty('--i',Math.min(i,9));if(k==='b'&&i<4){var W=i===0?BR.logo:i===1?BR.hbl:i===2?BR.zpl:BR.hl;t.setAttribute('aria-label','Ver la identidad de marca de '+(i===0?'bystephie.ok':i===1?'Holy Bites':i===2?'Zuply':'Hile Studio'));t.style.background=i===3?'var(--soft)':W.bg;var im=document.createElement(i===3?'span':'img');if(i===3){im.style.cssText='display:block;width:72%;height:72%;margin:14%;background:var(--ac);-webkit-mask:url('+W.src+') center/contain no-repeat;mask:url('+W.src+') center/contain no-repeat'}else{im.src=W.src;im.alt='';if(i===1)im.style.padding='19%';if(i===2)im.style.padding='24%'}t.appendChild(im);t.addEventListener('click',function(){openCat('b',i)})}else{t.setAttribute('aria-label','Espacio libre: aquí podría estar tu marca');t.innerHTML='<span class="st" aria-hidden="true"></span>';t.addEventListener('click',function(){openEmpty(k)})}phg.appendChild(t)})(i)}}
+for(var i=0;i<Math.max(18,PROYECTOS.length);i++){(function(i){var t=document.createElement('button');t.type='button';t.className='pt pc'+((i+ix)%4);t.style.setProperty('--i',Math.min(i,9));if(k==='b'&&i<PROYECTOS.length){var P=PROYECTOS[i],e=parseFloat(P.espacio)||0;t.setAttribute('aria-label','Ver la identidad de marca de '+P.nombre);t.style.background=P.fondo;var im=document.createElement(P.silueta?'span':'img');if(P.silueta){var r=100-2*e;im.style.cssText='display:block;width:'+r+'%;height:'+r+'%;margin:'+e+'%;background:var(--ac);-webkit-mask:url("'+P.logo+'") center/contain no-repeat;mask:url("'+P.logo+'") center/contain no-repeat'}else{im.src=P.logo;im.alt='';im.style.padding=P.espacio}t.appendChild(im);t.addEventListener('click',function(){openCat('b',i)})}else{t.setAttribute('aria-label','Espacio libre: aquí podría estar tu marca');t.innerHTML='<span class="st" aria-hidden="true"></span>';t.addEventListener('click',function(){openEmpty(k)})}phg.appendChild(t)})(i)}}
 document.querySelectorAll('.hb').forEach(function(b){b.addEventListener('click',function(){pfSel(b.dataset.k)})});
 document.getElementById('ci-b').addEventListener('click',function(){pk==='b'?openCat('b',0):openEmpty(pk)});
 pfSel('b');
