@@ -7,7 +7,7 @@
 <link rel="icon" href="img/icon/round_icon.png" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon/round_icon.png">
 <link rel="apple-touch-icon" href="img/icon/square_icon.png">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.list-manage.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.list-manage.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
 @font-face{font-family:Montserrat;font-weight:300;font-style:normal;font-display:swap;src:url(fonts/montserrat-latin-300-normal.woff2) format("woff2")}
@@ -449,7 +449,7 @@ main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 <label class="fld" id="otrow" hidden>¿Cuál?<span class="rq" aria-hidden="true"> *</span><input name="origen_otro" maxlength="120" autocomplete="off" placeholder="Cuéntame dónde me conociste"></label>
 <div class="hp" aria-hidden="true"><label>No llenar<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
 <label class="chk"><input type="checkbox" name="news"><span>Quiero recibir novedades y guías de bystephie.ok por correo (opcional). Se gestionan con Mailchimp, en EE.UU., y puedo darme de baja cuando quiera.</span></label>
-<label class="chk"><input type="checkbox" name="acepto" required><span>He leído la <a href="#privacidad" data-priv>Política de privacidad</a>. Mis datos se usarán solo para responder esta solicitud y se envían a través de FormSubmit y Gmail (EE.UU.).</span></label>
+<label class="chk"><input type="checkbox" name="acepto" required><span>He leído la <a href="#privacidad" data-priv>Política de privacidad</a>. Mis datos se usarán solo para responder esta solicitud y se envían a través de Web3Forms y Gmail (EE.UU.).</span></label>
 <p class="gerr" id="qerr" role="alert"></p>
 <div class="qact"><button class="btn qback" type="button" id="qb">Volver</button><button class="btn b-coral qbig" type="submit">Enviar</button></div></div></form>
 <div id="qok" class="qok" hidden role="status"><span class="st qstar" aria-hidden="true"></span><span class="sent">Enviado</span><h4 class="qh">¡Gracias, <span id="qname"></span>!</h4><p>Pronto me pondré en contacto contigo y te haré llegar una <span class="hl">propuesta adaptada</span> a tu presupuesto.</p><button class="btn b-white" type="button" id="qc2">Listo</button><small class="disc">Si no ves mi respuesta, revisa tu carpeta de spam. Usaré tus datos solo para responder esta solicitud.</small></div>
@@ -484,7 +484,7 @@ main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 
 <h4>4. Con quién se comparten y transferencias fuera de Chile</h4>
 <ul>
-<li><b>FormSubmit</b> (formsubmit.co): recibe el formulario de cotización y me lo reenvía por correo.</li>
+<li><b>Web3Forms</b> (web3forms.com): recibe el formulario de cotización y me lo reenvía por correo.</li>
 <li><b>Google (Gmail)</b>: correo donde recibo y guardo tus mensajes.</li>
 <li><b>Mailchimp</b>: guarda la lista de correo y gestiona el envío de novedades.</li>
 <li><b>YouTube (Google)</b>: los videos del portafolio se cargan desde YouTube solo cuando presionas «Reproducir»; antes de eso, la página no se conecta con YouTube. Al reproducir, YouTube recibe datos técnicos de tu conexión y puede usar cookies según su propia política de privacidad. Usamos su modo de privacidad mejorada (youtube-nocookie.com).</li>
@@ -705,7 +705,7 @@ var L=lista(k);for(var i=0;i<Math.max(18,L.length);i++){(function(i){var t=docum
 document.querySelectorAll('.hb').forEach(function(b){b.addEventListener('click',function(){pfSel(b.dataset.k)})});
 document.getElementById('ci-b').addEventListener('click',function(){lista(pk).length?openCat(pk,0):openEmpty(pk)});
 pfSel('b');
-var QUOTE_ENDPOINT='https://formsubmit.co/ajax/bystephieok@gmail.com';
+var QUOTE_ENDPOINT='https://api.web3forms.com/submit',W3F_KEY='9a7c103b-37f9-4ac3-bc9b-2dd840ad231e';
 var qd=document.getElementById('qd'),qf=document.getElementById('qf'),qp=qf.querySelectorAll('.qp'),qs=document.getElementById('qs'),qerr=document.getElementById('qerr'),qok=document.getElementById('qok'),qwr=document.getElementById('qwr');
 function qstep(n){qp.forEach(function(p){p.hidden=p.dataset.p!=n});qs.textContent=n==1?'Paso 1 de 2 · Quién eres':'Paso 2 de 2 · Tu proyecto';document.getElementById('qi2').classList.toggle('on',n==2);qd.scrollTop=0}
 function qopen(){qd.classList.remove('done');qf.hidden=false;qok.hidden=true;qwr.hidden=false;qerr.textContent='';qf.reset();qstep(1);document.getElementById('qwa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Stephanie, quiero cotizar un proyecto.');qd.showModal()}
@@ -724,7 +724,7 @@ var so=qf.querySelector('select[name=origen]'),ot=qf.querySelector('input[name=o
 if(bad.length){bad.forEach(function(x){x.classList.add('bad')});qerr.textContent='Completa todos los campos para poder enviar.';bad[0].scrollIntoView({block:'center',behavior:'smooth'});if(bad[0].focus&&bad[0].tagName!=='FIELDSET')bad[0].focus({preventScroll:true});return}
 var d=new FormData(qf),nm=String(d.get('nombre')||'').trim();
 if(d.get('_honey')){qdone(nm);return}
-var em=String(d.get('email')||'').trim(),data={nombre:nm,email:em,telefono:String(d.get('telefono')||'').trim(),marca:String(d.get('marca')||'').trim(),necesito:d.getAll('necesito').join(', ')||'No indicó',proyecto:String(d.get('proyecto')||'').trim(),presupuesto:String(d.get('presupuesto')||'')||'Prefiere conversarlo',plazo:String(d.get('plazo')||'')||'Sin definir',origen:(function(){var o=String(d.get('origen')||''),t=String(d.get('origen_otro')||'').trim();return o==='Otro'?'Otro: '+t:o})(),_subject:'Nueva solicitud de cotización · bystephie.ok',_template:'table',_captcha:'false',_replyto:em},btn=qf.querySelector('button[type=submit]');btn.disabled=true;var lbl=btn.textContent;btn.textContent='Enviando…';
+var em=String(d.get('email')||'').trim(),data={nombre:nm,email:em,telefono:String(d.get('telefono')||'').trim(),marca:String(d.get('marca')||'').trim(),necesito:d.getAll('necesito').join(', ')||'No indicó',proyecto:String(d.get('proyecto')||'').trim(),presupuesto:String(d.get('presupuesto')||'')||'Prefiere conversarlo',plazo:String(d.get('plazo')||'')||'Sin definir',origen:(function(){var o=String(d.get('origen')||''),t=String(d.get('origen_otro')||'').trim();return o==='Otro'?'Otro: '+t:o})(),access_key:W3F_KEY,subject:'Nueva solicitud de cotización · bystephie.ok',from_name:'bystephie.ok · Formulario web',replyto:em},btn=qf.querySelector('button[type=submit]');btn.disabled=true;var lbl=btn.textContent;btn.textContent='Enviando…';
 var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},15000);
 fetch(QUOTE_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctl?ctl.signal:undefined}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success==='false'||j.success===false)throw new Error(j.message||('HTTP '+r.status));return j})}).then(function(){if(d.get('news'))mcSub({EMAIL:em,FNAME:nm,ORIGEN:'Cotización'});qdone(nm)}).catch(function(err){console.error('Formulario de cotización:',err);qerr.textContent=(err&&err.name==='AbortError')?'Tardó demasiado en responder. Inténtalo de nuevo o escríbeme por WhatsApp.':'No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbeme por WhatsApp.'}).then(function(){clearTimeout(tm);btn.disabled=false;btn.textContent=lbl})});
 
