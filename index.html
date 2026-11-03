@@ -6,7 +6,7 @@
 <title>bystephie.ok · Community manager y diseñadora gráfica</title>
 <link rel="icon" href="img/icon/round_icon.png" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon/round_icon.png">
-<link rel="apple-touch-icon" href="img/icon/round_icon.png">
+<link rel="apple-touch-icon" href="img/icon/square_icon.png">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.list-manage.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
@@ -300,6 +300,19 @@ dialog.quote .dbody>*:not(.qdeco){position:relative;z-index:1}
 .qok{text-align:center;padding:14px 0 6px}
 .qstar{width:88px;color:var(--coral);animation:spin 1.4s cubic-bezier(.3,1.4,.5,1) both}
 .qh{font:800 clamp(2rem,7vw,2.8rem)/1 Gilroy,"Montserrat",sans-serif;margin:14px 0 12px;color:#fff}
+.sent{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:var(--ink);font-weight:800;border-radius:99px;padding:.3rem .9rem .3rem .6rem;margin-top:6px}
+.sent::before{content:"";width:1.05em;height:1.05em;border-radius:50%;background:var(--ink);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;background:var(--ink)}
+dialog#qd.done #qt,dialog#qd.done .qd1{display:none}
+dialog#qd.done .dtop{justify-content:flex-end}
+dialog#qd.done .qok{padding:6px 0 18px;text-align:center}
+.qok .qstar{display:block;margin:0 auto 10px}.qok .qh{margin-top:12px}
+.disc{display:block;max-width:34ch;margin:18px auto 0;font-size:.8rem;line-height:1.4;opacity:.85}
+.ddb.ph{color:#16185F99}
+.ddb.bad,.quote .fld input.bad{border-color:var(--pink);box-shadow:0 0 0 4px #F27BA5AA}
+.chips.bad{outline:3px dashed var(--pink);outline-offset:6px;border-radius:18px}
+.chips legend small{font-weight:300;opacity:.85}
+.ddl li[hidden]{display:none}
+#otrow[hidden],.qp[hidden]{display:none}
 .qok p{max-width:30ch;margin:0 auto 22px;font-size:1.1rem}
 dialog.gate.quote{width:min(500px,calc(100% - 24px))}
 .gate.quote .dtop h3{max-width:none;font-size:clamp(1.5rem,5.6vw,2.1rem);line-height:1.05}
@@ -423,24 +436,25 @@ main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 <div class="dtop"><h3 id="qt">Cuéntame de tu <span class="hl">proyecto</span></h3><button class="btn qclose" id="qx" type="button">Cerrar</button></div>
 <form id="qf" novalidate>
 <div class="qprog" aria-hidden="true"><i class="on" id="qi1"></i><i id="qi2"></i></div><p class="qstep" id="qs">Paso 1 de 2 · Quién eres</p>
-<div class="qp" data-p="1"><label class="fld">Nombre<span class="rq" aria-hidden="true"> *</span><input name="nombre" required autocomplete="name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="fld">Teléfono<span class="rq" aria-hidden="true"> *</span><input name="telefono" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+56 9 1234 5678" pattern="[0-9+\(\) \-]{8,}" title="Ingresa un teléfono válido, por ejemplo +56 9 1234 5678"></label><label class="fld">Tu marca o emprendimiento e Instagram <small>(opcional)</small><input name="marca" placeholder="Nombre de la marca y @usuario"></label><button class="btn b-coral qbig" type="button" id="qn">Siguiente</button></div>
-<div class="qp" data-p="2" hidden><fieldset class="chips"><legend>¿Qué necesitas?</legend><label><input type="checkbox" name="necesito" value="Estrategia"><span>Estrategia</span></label><label><input type="checkbox" name="necesito" value="Contenido"><span>Contenido</span></label><label><input type="checkbox" name="necesito" value="Branding"><span>Branding</span></label><label><input type="checkbox" name="necesito" value="Community management"><span>Community management</span></label><label><input type="checkbox" name="necesito" value="Meta Ads"><span>Meta Ads</span></label><label><input type="checkbox" name="necesito" value="Fotografía o video"><span>Fotografía o video</span></label><label><input type="checkbox" name="necesito" value="Aún no lo sé"><span>Aún no lo sé</span></label></fieldset>
+<div class="qp" data-p="1"><label class="fld">Nombre<span class="rq" aria-hidden="true"> *</span><input name="nombre" required autocomplete="name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="fld">Teléfono<span class="rq" aria-hidden="true"> *</span><input name="telefono" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+56 9 1234 5678" pattern="[0-9+\(\) \-]{8,}" title="Ingresa un teléfono válido, por ejemplo +56 9 1234 5678"></label><label class="fld">Tu marca o emprendimiento e Instagram<span class="rq" aria-hidden="true"> *</span><input name="marca" required placeholder="Nombre de la marca y @usuario"></label><button class="btn b-coral qbig" type="button" id="qn">Siguiente</button></div>
+<div class="qp" data-p="2" hidden><fieldset class="chips"><legend>¿Qué necesitas?<b class="rq" aria-hidden="true"> *</b> <small>(elige al menos una)</small></legend><label><input type="checkbox" name="necesito" value="Estrategia"><span>Estrategia</span></label><label><input type="checkbox" name="necesito" value="Contenido"><span>Contenido</span></label><label><input type="checkbox" name="necesito" value="Branding"><span>Branding</span></label><label><input type="checkbox" name="necesito" value="Community management"><span>Community management</span></label><label><input type="checkbox" name="necesito" value="Meta Ads"><span>Meta Ads</span></label><label><input type="checkbox" name="necesito" value="Fotografía o video"><span>Fotografía o video</span></label><label><input type="checkbox" name="necesito" value="Aún no lo sé"><span>Aún no lo sé</span></label></fieldset>
 <label class="fld">Cuéntame de tu proyecto<span class="rq" aria-hidden="true"> *</span><textarea name="proyecto" required rows="4" placeholder="Háblame de tu proyecto y veamos en conjunto una propuesta que se adapte a él."></textarea></label>
-<label class="fld">Presupuesto aproximado <small>(opcional)</small><select name="presupuesto"><option value="">Prefiero conversarlo</option><option>$100.000 a $300.000 CLP · USD 100 a 300</option><option>$300.000 a $600.000 CLP · USD 300 a 600</option><option>$600.000 a $1.000.000 CLP · USD 600 a 1.000</option><option>Más de $1.000.000 CLP · más de USD 1.000</option></select></label>
-<div class="qrow"><label class="fld">¿Para cuándo lo necesitas? <small>(opcional)</small><select name="plazo"><option value="">Sin definir</option><option>Lo antes posible</option><option>Este mes</option><option>Sin apuro</option></select></label>
-<label class="fld">¿Cómo me conociste? <small>(opcional)</small><select name="origen"><option value="">Prefiero no decirlo</option><option>Instagram</option><option>TikTok</option><option>Recomendación</option><option>Google</option><option>Otro</option></select></label></div>
+<label class="fld">Presupuesto aproximado<span class="rq" aria-hidden="true"> *</span><select name="presupuesto"><option value="" disabled selected>Elige una opción</option><option>$100.000 a $300.000 CLP · USD 100 a 300</option><option>$300.000 a $600.000 CLP · USD 300 a 600</option><option>$600.000 a $1.000.000 CLP · USD 600 a 1.000</option><option>Más de $1.000.000 CLP · más de USD 1.000</option><option>Prefiero conversarlo</option></select></label>
+<div class="qrow"><label class="fld">¿Para cuándo lo necesitas?<span class="rq" aria-hidden="true"> *</span><select name="plazo"><option value="" disabled selected>Elige una opción</option><option>Lo antes posible</option><option>Este mes</option><option>Sin apuro</option><option>Aún sin definir</option></select></label>
+<label class="fld">¿Cómo me conociste?<span class="rq" aria-hidden="true"> *</span><select name="origen"><option value="" disabled selected>Elige una opción</option><option>Instagram</option><option>TikTok</option><option>Recomendación</option><option>Google</option><option>Otro</option></select></label></div>
+<label class="fld" id="otrow" hidden>¿Cuál?<span class="rq" aria-hidden="true"> *</span><input name="origen_otro" maxlength="120" autocomplete="off" placeholder="Cuéntame dónde me conociste"></label>
 <div class="hp" aria-hidden="true"><label>No llenar<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
 <label class="chk"><input type="checkbox" name="news"><span>Quiero recibir novedades y guías de bystephie.ok por correo (opcional). Se gestionan con Mailchimp, en EE.UU., y puedo darme de baja cuando quiera.</span></label>
 <label class="chk"><input type="checkbox" name="acepto" required><span>He leído la <a href="#privacidad" data-priv>Política de privacidad</a>. Mis datos se usarán solo para responder esta solicitud y se envían a través de FormSubmit y Gmail (EE.UU.).</span></label>
 <p class="gerr" id="qerr" role="alert"></p>
 <div class="qact"><button class="btn qback" type="button" id="qb">Volver</button><button class="btn b-coral qbig" type="submit">Enviar</button></div></div></form>
-<div id="qok" class="qok" hidden><span class="st qstar" aria-hidden="true"></span><h4 class="qh">¡Gracias, <span id="qname"></span>!</h4><p>Pronto me pondré en contacto contigo y te haré llegar una <span class="hl">propuesta adaptada</span> a tu presupuesto.</p><button class="btn b-white" type="button" id="qc2">Listo</button></div>
+<div id="qok" class="qok" hidden role="status"><span class="st qstar" aria-hidden="true"></span><span class="sent">Enviado</span><h4 class="qh">¡Gracias, <span id="qname"></span>!</h4><p>Pronto me pondré en contacto contigo y te haré llegar una <span class="hl">propuesta adaptada</span> a tu presupuesto.</p><button class="btn b-white" type="button" id="qc2">Listo</button><small class="disc">Si no ves mi respuesta, revisa tu carpeta de spam. Usaré tus datos solo para responder esta solicitud.</small></div>
 <p class="qwa" id="qwr"><a href="#" id="qwa" target="_blank" rel="noopener">Prefiero escribir por WhatsApp</a></p></div></dialog>
 <dialog class="pop gate quote" id="wip" aria-labelledby="wipt"><div class="dbody"><span class="qdeco qd2 st" aria-hidden="true"></span><span class="qdeco qd3 st" aria-hidden="true"></span>
 <div class="qok wipb"><span class="st qstar" aria-hidden="true"></span><h3 class="qh" id="wipt"><span class="hl">Work in Progress</span></h3><p class="wips">¡Estoy armando algo cool!</p><p>Aún estoy cargando mis trabajos a mi nuevo portafolio, pero algunos de mis favoritos ya están por aquí.</p><p>Estoy trabajando en lo que sigue y pronto habrá mucho más para ver.</p><div class="wipbtns"><button class="btn b-coral qbig" type="button" id="wipx">Entrar a curiosear</button></div></div></div></dialog>
 <dialog class="pop gate quote" id="gate" aria-labelledby="gtitle"><div class="dbody"><span class="qdeco qd1 st" aria-hidden="true"></span><span class="qdeco qd2 st" aria-hidden="true"></span><div class="dtop"><h3 id="gtitle"></h3><button class="btn qclose" id="gx" type="button">Cerrar</button></div>
-<form id="gf"><p class="gp">Déjame tu correo y empieza tu descarga.</p><label class="fld">Nombre (opcional)<input name="nombre" autocomplete="given-name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="chk"><input type="checkbox" name="news" id="gchk" required><span>A cambio de esta guía gratis, acepto recibir novedades y guías de bystephie.ok por correo (vía Mailchimp, EE.UU.). Puedo darme de baja cuando quiera. <a href="#privacidad" data-priv>Política de privacidad</a></span></label><p class="gerr" id="gerr" role="alert"></p><button class="btn b-coral qbig" type="submit">Descargar ahora</button></form>
-<div id="gok" class="qok" hidden><span class="st qstar" aria-hidden="true"></span><h4 class="qh">¡Listo!</h4><p>Tu descarga debería comenzar ahora. Si no empieza, <a id="gdl" href="#" download>descárgala aquí</a>.</p></div></div></dialog>
+<form id="gf"><p class="gp">Déjame tu correo y empieza tu descarga.</p><label class="fld">Nombre<span class="rq" aria-hidden="true"> *</span><input name="nombre" required autocomplete="given-name"></label><label class="fld">Correo<span class="rq" aria-hidden="true"> *</span><input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com"></label><label class="chk"><input type="checkbox" name="news" id="gchk" required><span>A cambio de esta guía gratis, acepto recibir novedades y guías de bystephie.ok por correo (vía Mailchimp, EE.UU.). Puedo darme de baja cuando quiera. <a href="#privacidad" data-priv>Política de privacidad</a></span></label><p class="gerr" id="gerr" role="alert"></p><button class="btn b-coral qbig" type="submit">Descargar ahora</button></form>
+<div id="gok" class="qok" hidden role="status"><span class="st qstar" aria-hidden="true"></span><span class="sent">Enviado</span><h4 class="qh">¡Listo, <span id="gname"></span>!</h4><p>Tu descarga debería comenzar ahora. Si no empieza, <a id="gdl" href="#" download>descárgala aquí</a>.</p><small class="disc">Si no te llegan mis correos, revisa tu carpeta de spam. Puedes darte de baja cuando quieras.</small></div></div></dialog>
 <dialog class="pop" id="dlg" aria-labelledby="dt"><div class="dbody"><div class="dtop"><h3 id="dt"></h3><button class="btn b-white" style="background:var(--cobalt);color:#fff" id="dx">Cerrar</button></div><div class="trk" id="trk"></div><p class="dtx" id="dtx" hidden></p><div class="dnav"><button class="btn b-pink" id="pv" style="color:#16185F">Anterior</button><span id="cnt"></span><button class="btn b-pink" id="nx" style="color:#16185F">Siguiente</button></div></div></dialog>
 <dialog class="pop priv" id="priv" aria-labelledby="ptt"><div class="dbody"><div class="dtop"><h3 id="ptt">Política de privacidad</h3><button class="btn b-white" style="background:var(--cobalt);color:#fff" id="px" type="button">Cerrar</button></div>
 <div class="ptxt">
@@ -453,9 +467,9 @@ main [tabindex="-1"]:focus,section[tabindex="-1"]:focus{outline:none}
 
 <h4>2. Qué datos recibo y para qué</h4>
 <ul>
-<li><b>Formulario «Cuéntame de tu proyecto».</b> Nombre, correo y teléfono. De forma opcional: marca o Instagram, servicios que te interesan, descripción del proyecto, presupuesto, plazo y cómo me conociste. Los uso solo para responder tu solicitud y preparar una cotización. La base legal es que tú me pides esa cotización (medidas precontractuales a solicitud del titular, art. 13 letra c).</li>
+<li><b>Formulario «Cuéntame de tu proyecto».</b> Nombre, correo, teléfono, marca o Instagram, servicios que te interesan, descripción del proyecto, presupuesto, plazo y cómo me conociste. Los uso solo para responder tu solicitud y preparar una cotización. La base legal es que tú me pides esa cotización (medidas precontractuales a solicitud del titular, art. 13 letra c).</li>
 <li><b>Novedades por correo desde el formulario de cotización (opcional).</b> Nombre y correo, solo si marcas la casilla de novedades. Los uso para enviarte novedades, guías y contenidos de bystephie.ok. La base legal es tu consentimiento (art. 12), que puedes retirar cuando quieras.</li>
-<li><b>Guías gratuitas.</b> Nombre (opcional) y correo. La guía es gratis y a cambio aceptas recibir novedades y guías por correo; esa es la única contraprestación que pido (art. 12, inciso sobre bienes o beneficios ofrecidos a cambio del consentimiento). También registro qué guía descargaste, para enviarte contenido relacionado con ese tema. Puedes darte de baja cuando quieras desde el link que trae cada correo, y seguirás teniendo la guía.</li>
+<li><b>Guías gratuitas.</b> Nombre y correo. La guía es gratis y a cambio aceptas recibir novedades y guías por correo; esa es la única contraprestación que pido (art. 12, inciso sobre bienes o beneficios ofrecidos a cambio del consentimiento). También registro qué guía descargaste, para enviarte contenido relacionado con ese tema. Puedes darte de baja cuando quieras desde el link que trae cada correo, y seguirás teniendo la guía.</li>
 <li><b>Guías de pago (por WhatsApp).</b> Los datos que me des al comprar (nombre, contacto y los necesarios para la boleta) los uso para concretar la venta y entregarte la guía. La base legal es el contrato de compra (art. 13 letra c). Solo te sumo a la lista de novedades si me lo autorizas expresamente.</li>
 <li><b>WhatsApp, Instagram, TikTok o correo.</b> Si me escribes por esos medios, uso lo que me envíes solo para responderte. Esas plataformas tratan tus datos según sus propias políticas.</li>
 </ul>
@@ -534,7 +548,7 @@ document.getElementById('gx').addEventListener('click',function(){gate.close()})
 gate.addEventListener('click',function(e){if(e.target===gate)gate.close()});
 gf.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(gf),btn=gf.querySelector('button[type=submit]');gerr.textContent='';btn.disabled=true;
 var p=mcSub({EMAIL:String(d.get('email')||'').trim(),FNAME:String(d.get('nombre')||'').trim(),ORIGEN:'Guía: '+cg.t});
-p.then(function(){gf.hidden=true;gok.hidden=false;document.getElementById('gdl').href=cg.archivo;var t=document.createElement('a');t.href=cg.archivo;t.download='';document.body.appendChild(t);t.click();t.remove()}).catch(function(){gerr.textContent='No pudimos registrar tu correo. Inténtalo de nuevo en un momento.'}).then(function(){gsync()})});
+p.then(function(){document.getElementById('gname').textContent=String(d.get('nombre')||'').trim().split(' ')[0];gf.hidden=true;gok.hidden=false;document.getElementById('gdl').href=cg.archivo;var t=document.createElement('a');t.href=cg.archivo;t.download='';document.body.appendChild(t);t.click();t.remove()}).catch(function(){gerr.textContent='No pudimos registrar tu correo. Inténtalo de nuevo en un momento.'}).then(function(){gsync()})});
 gchk.addEventListener('change',gsync);gsync();
 pintar('todas');
 var ct=document.querySelector('.contact');if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){ct.classList.add('in');o.disconnect()}})},{threshold:.35}).observe(ct)}else{ct.classList.add('in')}
@@ -690,8 +704,8 @@ pfSel('b');
 var QUOTE_ENDPOINT='https://formsubmit.co/ajax/bystephieok@gmail.com';
 var qd=document.getElementById('qd'),qf=document.getElementById('qf'),qp=qf.querySelectorAll('.qp'),qs=document.getElementById('qs'),qerr=document.getElementById('qerr'),qok=document.getElementById('qok'),qwr=document.getElementById('qwr');
 function qstep(n){qp.forEach(function(p){p.hidden=p.dataset.p!=n});qs.textContent=n==1?'Paso 1 de 2 · Quién eres':'Paso 2 de 2 · Tu proyecto';document.getElementById('qi2').classList.toggle('on',n==2);qd.scrollTop=0}
-function qopen(){qf.hidden=false;qok.hidden=true;qwr.hidden=false;qerr.textContent='';qf.reset();qstep(1);document.getElementById('qwa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Stephanie, quiero cotizar un proyecto.');qd.showModal()}
-function qdone(nm){document.getElementById('qname').textContent=nm.split(' ')[0];qf.hidden=true;qwr.hidden=true;qok.hidden=false;qd.scrollTop=0}
+function qopen(){qd.classList.remove('done');qf.hidden=false;qok.hidden=true;qwr.hidden=false;qerr.textContent='';qf.reset();qstep(1);document.getElementById('qwa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Stephanie, quiero cotizar un proyecto.');qd.showModal()}
+function qdone(nm){qd.classList.add('done');document.getElementById('qname').textContent=nm.split(' ')[0];qf.hidden=true;qwr.hidden=true;qok.hidden=false;qd.scrollTop=0}
 document.querySelectorAll('[data-quote]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var h=document.querySelector('header.nav');if(h)h.classList.remove('open');qopen()})});
 document.getElementById('qx').addEventListener('click',function(){qd.close()});
 document.getElementById('qc2').addEventListener('click',function(){qd.close()});
@@ -699,9 +713,14 @@ qd.addEventListener('click',function(e){if(e.target===qd)qd.close()});
 document.getElementById('qn').addEventListener('click',function(){var ok=true;qp[0].querySelectorAll('input').forEach(function(i){if(ok&&!i.reportValidity())ok=false});if(ok)qstep(2)});
 document.getElementById('qb').addEventListener('click',function(){qstep(1)});
 qp[0].addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('qn').click()}});
-qf.addEventListener('submit',function(e){e.preventDefault();qerr.textContent='';if(!qf.reportValidity())return;var d=new FormData(qf),nm=String(d.get('nombre')||'').trim();
+qf.addEventListener('submit',function(e){e.preventDefault();qerr.textContent='';if(!qf.reportValidity())return;var bad=[];qf.querySelectorAll('.ddb.bad,.chips.bad,#otrow input.bad').forEach(function(x){x.classList.remove('bad')});
+if(!qf.querySelector('input[name=necesito]:checked')){bad.push(qf.querySelector('.chips'))}
+qf.querySelectorAll('select').forEach(function(sl){if(!sl.value)bad.push(sl.parentNode.querySelector('.ddb'))});
+var so=qf.querySelector('select[name=origen]'),ot=qf.querySelector('input[name=origen_otro]');if(so.value==='Otro'&&!ot.value.trim())bad.push(ot);
+if(bad.length){bad.forEach(function(x){x.classList.add('bad')});qerr.textContent='Completa todos los campos para poder enviar.';bad[0].scrollIntoView({block:'center',behavior:'smooth'});if(bad[0].focus&&bad[0].tagName!=='FIELDSET')bad[0].focus({preventScroll:true});return}
+var d=new FormData(qf),nm=String(d.get('nombre')||'').trim();
 if(d.get('_honey')){qdone(nm);return}
-var em=String(d.get('email')||'').trim(),data={nombre:nm,email:em,telefono:String(d.get('telefono')||'').trim(),marca:String(d.get('marca')||'').trim(),necesito:d.getAll('necesito').join(', ')||'No indicó',proyecto:String(d.get('proyecto')||'').trim(),presupuesto:String(d.get('presupuesto')||'')||'Prefiere conversarlo',plazo:String(d.get('plazo')||'')||'Sin definir',origen:String(d.get('origen')||'')||'No indicó',_subject:'Nueva solicitud de cotización · bystephie.ok',_template:'table',_captcha:'false',_replyto:em},btn=qf.querySelector('button[type=submit]');btn.disabled=true;
+var em=String(d.get('email')||'').trim(),data={nombre:nm,email:em,telefono:String(d.get('telefono')||'').trim(),marca:String(d.get('marca')||'').trim(),necesito:d.getAll('necesito').join(', ')||'No indicó',proyecto:String(d.get('proyecto')||'').trim(),presupuesto:String(d.get('presupuesto')||'')||'Prefiere conversarlo',plazo:String(d.get('plazo')||'')||'Sin definir',origen:(function(){var o=String(d.get('origen')||''),t=String(d.get('origen_otro')||'').trim();return o==='Otro'?'Otro: '+t:o})(),_subject:'Nueva solicitud de cotización · bystephie.ok',_template:'table',_captcha:'false',_replyto:em},btn=qf.querySelector('button[type=submit]');btn.disabled=true;
 fetch(QUOTE_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0;if(d.get('news'))mcSub({EMAIL:em,FNAME:nm,ORIGEN:'Cotización'});qdone(nm)}).catch(function(){qerr.textContent='No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbeme por WhatsApp.'}).then(function(){btn.disabled=false})});
 
 /* desplegables de marca */
@@ -710,24 +729,25 @@ qf.querySelectorAll('select').forEach(function(sel){
 var w=document.createElement('div');w.className='dd';
 var b=document.createElement('button');b.type='button';b.className='ddb';b.setAttribute('aria-haspopup','listbox');b.setAttribute('aria-expanded','false');
 var ul=document.createElement('ul');ul.className='ddl';ul.setAttribute('role','listbox');
-Array.prototype.forEach.call(sel.options,function(o,i){var li=document.createElement('li');li.setAttribute('role','option');li.textContent=o.textContent;li.dataset.i=i;ul.appendChild(li)});
+Array.prototype.forEach.call(sel.options,function(o,i){var li=document.createElement('li');li.setAttribute('role','option');li.textContent=o.textContent;li.dataset.i=i;if(o.disabled)li.hidden=true;ul.appendChild(li)});
 w.appendChild(b);w.appendChild(ul);sel.parentNode.appendChild(w);
 var items=ul.children,hv=-1;
-function sync(){var o=sel.options[sel.selectedIndex];b.textContent=o.textContent;Array.prototype.forEach.call(items,function(li,i){li.setAttribute('aria-selected',i===sel.selectedIndex)})}
-function hl(n){hv=Math.max(0,Math.min(items.length-1,n));Array.prototype.forEach.call(items,function(li,i){li.classList.toggle('hv',i===hv)});items[hv].scrollIntoView({block:'nearest'})}
+function sync(){var o=sel.options[sel.selectedIndex];b.textContent=o.textContent;b.classList.toggle('ph',!sel.value);b.classList.remove('bad');Array.prototype.forEach.call(items,function(li,i){li.setAttribute('aria-selected',i===sel.selectedIndex)})}
+function hl(n,d){d=d||1;n=Math.max(0,Math.min(items.length-1,n));while(items[n]&&items[n].hidden&&n+d>=0&&n+d<items.length)n+=d;hv=n;Array.prototype.forEach.call(items,function(li,i){li.classList.toggle('hv',i===hv)});items[hv].scrollIntoView({block:'nearest'})}
 function open(){dds.forEach(function(d){d.close()});var r=b.getBoundingClientRect();w.classList.toggle('up',window.innerHeight-r.bottom<290&&r.top>290);w.classList.add('open');b.setAttribute('aria-expanded','true');hl(sel.selectedIndex)}
 function close(){w.classList.remove('open');b.setAttribute('aria-expanded','false')}
-function pick(i){sel.selectedIndex=i;sync();close();b.focus()}
+function pick(i){sel.selectedIndex=i;sync();sel.dispatchEvent(new Event('change',{bubbles:true}));close();b.focus()}
 dds.push({close:close});
 b.addEventListener('click',function(){w.classList.contains('open')?close():open()});
 ul.addEventListener('click',function(e){e.preventDefault();var li=e.target.closest('li');if(li)pick(+li.dataset.i)});
 b.addEventListener('keydown',function(e){var o=w.classList.contains('open');
-if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!o)open();else hl(hv+(e.key==='ArrowDown'?1:-1))}
+if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!o)open();else hl(hv+(e.key==='ArrowDown'?1:-1),e.key==='ArrowDown'?1:-1)}
 else if((e.key==='Enter'||e.key===' ')&&o){e.preventDefault();pick(hv)}
 else if(e.key==='Escape'&&o){e.preventDefault();e.stopPropagation();close()}
 else if(e.key==='Tab')close()});
 document.addEventListener('click',function(e){if(!w.contains(e.target))close()});
 qf.addEventListener('reset',function(){setTimeout(sync,0)});sync()})})();
+(function(){var o=qf.querySelector('select[name=origen]'),r=document.getElementById('otrow');if(!o||!r)return;function ch(){r.hidden=o.value!=='Otro';if(r.hidden)r.querySelector('input').value=''}o.addEventListener('change',ch);qf.addEventListener('reset',function(){setTimeout(ch,0)})})();
 /* política de privacidad */
 (function(){var pd=document.getElementById('priv');
 function po(e){if(e)e.preventDefault();if(!pd.open)pd.showModal();pd.scrollTop=0}
